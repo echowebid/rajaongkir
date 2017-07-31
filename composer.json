@@ -1,0 +1,18 @@
+{
+    "name": "echowebi/rajaongkir",
+    "description": "RajaOngkir API Starter",
+    "require": {
+        "php": "^5.4",
+    },
+    "autoload": {
+        "psr-4": {
+            "echowebid\\rajaongkir\\": "src/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/echowebid/rajaongkir"
+        }
+    ]
+}
