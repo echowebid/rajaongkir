@@ -6,7 +6,7 @@
     },
     "autoload": {
         "psr-4": {
-            "echowebid\\rajaongkir\\": "src/"
+            "Echowebid\\Rajaongkir\\": "src/"
         }
     },
     "repositories": [

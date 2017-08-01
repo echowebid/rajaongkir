@@ -1,6 +1,6 @@
 <?php
 
-namespace echowebid\rajaongkir;
+namespace Echowebid\Rajaongkir;
 
 use Illuminate\Support\Facades\Facade;
 

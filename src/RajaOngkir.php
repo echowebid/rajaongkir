@@ -1,10 +1,10 @@
 <?php
 
-namespace echowebid\rajaongkir;
+namespace Echowebid\Rajaongkir;
 
-use echowebid\rajaongkir\app\Province;
-use echowebid\rajaongkir\app\City;
-use echowebid\rajaongkir\app\Cost;
+use Echowebid\Rajaongkir\app\Province;
+use Echowebid\Rajaongkir\app\City;
+use Echowebid\Rajaongkir\app\Cost;
 
 class RajaOngkir 
 {

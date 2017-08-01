@@ -1,6 +1,6 @@
 <?php
 
-namespace echowebid\rajaongkir\app;
+namespace Echowebid\Rajaongkir\app;
 
 class City extends Api 
 {
