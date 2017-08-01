@@ -1,6 +1,6 @@
 <?php
 
-namespace Echowebid\Rajaongkir\app;
+namespace Echowebid\Rajaongkir\App;
 
 class Cost extends Api 
 {

@@ -2,6 +2,7 @@
 
 namespace Echowebid\Rajaongkir;
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
 
 class RajaOngkirServiceProvider extends ServiceProvider
@@ -13,7 +14,7 @@ class RajaOngkirServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/config/rajaongkir.php' => config_path() . '/rajaongkir.php',
+            __DIR__ . '/../config/rajaongkir.php' => config_path('rajaongkir.php'),
         ]);
     }
 
