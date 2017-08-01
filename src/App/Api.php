@@ -11,12 +11,12 @@ abstract class Api
     protected $data;
     protected $endpointapi;
     protected $options = [];
-    protected $apiKey;
+    protected $apikey;
 
     public function __construct()
     {
         $this->endpointapi = config('rajaongkir.endpointapi', 'http://rajaongkir.com/api/starter');
-        $this->apiKey = config('rajaongkir.apikey', '1q2w3e4r5t6y7u8i9o0p');
+        $this->apikey = config('rajaongkir.apikey', '1q2w3e4r5t6y7u8i9o0p');
     }
 
     public function all()
@@ -30,17 +30,65 @@ abstract class Api
         return $this->getData()->data;
     }
   
-    public function get()
-    {
-        return $this->data;
-    }
-  
     public function count()
     {
         if ( empty($this->data) )
             $this->data = $this->getData()->data;
 
         return count($this->data);
+    }
+  
+    public function get()
+    {
+        return $this->data;
+    }
+
+
+    public function search($args1, $args2 = FALSE)
+    {
+        if ( $args2 )
+            return $this->searchSpecific($args1, $args2);
+
+
+        $data = ( empty($this->data) ) ? $this->getData()->data : $this->data;
+        $temp = [];
+        $search = preg_quote($args1, '~');
+        foreach($data as $parent)
+        {
+            if ( is_array( $parent ) )
+            {    
+                foreach ( $parent as $key => $val )
+                {
+                    if ( preg_match('~' . $search . '~i', $val) )
+                    {
+                        array_push($temp, $parent);
+                        break;
+                    }
+                }
+            }
+        }
+
+        $this->data = $temp;
+        return $this;
+    }
+
+    protected function searchSpecific($column, $search)
+    {
+        $data = ( empty($this->data) ) ? $this->getData()->data : $this->data;
+        $rowColumn = array_column($data, $column);
+        $search = preg_quote($search, '~');
+        $result = preg_grep('~' . $search . '~i', $rowColumn);
+        $resultKey = array_keys($result);
+        $temp = [];
+        foreach($data as $key => $val)
+        {
+            if (in_array($key, $resultKey))
+            {
+                array_push($temp, $val);
+            }
+        }
+        $this->data = $temp;
+        return $this;
     }
    
     protected function getData()
@@ -56,7 +104,7 @@ abstract class Api
             CURLOPT_HTTP_VERSION       => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST      => "GET",
             CURLOPT_HTTPHEADER         => [
-                "key: ". $this->apiKey
+                "key: ". $this->apikey
             ],
         ];
         
