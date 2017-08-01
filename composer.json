@@ -2,7 +2,7 @@
     "name": "echowebid/rajaongkir",
     "description": "RajaOngkir API Starter",
     "require": {
-        "php": "^5.4"
+        "php": "^5.4 || ^7.0"
     },
     "autoload": {
         "psr-4": {
