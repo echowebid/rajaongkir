@@ -108,7 +108,7 @@ abstract class Api
             ],
         ];
         
-        if ( $this->options && in_array($this->options) )
+        if ( $this->options && is_array($this->options) )
         {
             foreach( $this->options as $key => $val)
             {
