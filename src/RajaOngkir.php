@@ -2,9 +2,9 @@
 
 namespace Echowebid\Rajaongkir;
 
-use Echowebid\Rajaongkir\app\Province;
-use Echowebid\Rajaongkir\app\City;
-use Echowebid\Rajaongkir\app\Cost;
+use Echowebid\Rajaongkir\App\Province;
+use Echowebid\Rajaongkir\App\City;
+use Echowebid\Rajaongkir\App\Cost;
 
 class RajaOngkir 
 {
