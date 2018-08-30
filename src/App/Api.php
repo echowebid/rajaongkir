@@ -15,7 +15,7 @@ abstract class Api
 
     public function __construct()
     {
-        $this->endpointapi = config('rajaongkir.endpointapi', 'http://rajaongkir.com/api/starter');
+        $this->endpointapi = config('rajaongkir.endpointapi', 'https://rajaongkir.com/api/starter');
         $this->apikey = config('rajaongkir.apikey', '1q2w3e4r5t6y7u8i9o0p');
     }
 
@@ -42,7 +42,6 @@ abstract class Api
     {
         return $this->data;
     }
-
 
     public function search($args1, $args2 = FALSE)
     {
@@ -133,7 +132,14 @@ abstract class Api
                 throw new Exception($data['rajaongkir']['status']['description'], 1);        
             } else
             {
-                $this->data = $data['rajaongkir']['results'];
+                if (isset($data['rajaongkir']['results'])) {
+                    $this->data = $data['rajaongkir']['results'];
+                } else if ($data['rajaongkir']['result'])
+                {
+                     $this->data = $data['rajaongkir']['result'];
+                } else {
+                    throw new Exception("Result not found", 1);        
+                }
                 return $this;
             }
         }

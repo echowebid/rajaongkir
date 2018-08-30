@@ -4,10 +4,12 @@ return [
     
     /**
      * Rajaongkir Endpointapi
-     * http://api.rajaongkir.com/starter/
+     * https://api.rajaongkir.com/starter
+     * https://api.rajaongkir.com/basic
+     * https://pro.rajaongkir.com/api
      */
     
-    "endpointapi" => env("RAJAONGKIR_ENDPOINTAPI", "http://api.rajaongkir.com/starter/"),
+    "endpointapi" => env("RAJAONGKIR_ENDPOINTAPI", "https://api.rajaongkir.com/starter/"),
 
     /**
      * Rajaongkir ApiKey
